@@ -5,6 +5,7 @@
 
 unsigned int CreateTexture(const char *image_path, int *width, int *height, unsigned int format)
 {
+    std::string img_path = GetGlobalResPath() + std::string(image_path);
 	unsigned int texture=0;
 	glGenTextures(1, &texture); // object
 	glBindTexture(GL_TEXTURE_2D, texture);
@@ -17,7 +18,7 @@ unsigned int CreateTexture(const char *image_path, int *width, int *height, unsi
 
 	stbi_set_flip_vertically_on_load(true);
 	int nrChannels;
-	unsigned char *data = stbi_load(image_path, width, height, &nrChannels, 0);
+	unsigned char *data = stbi_load(img_path.c_str(), width, height, &nrChannels, 0);
 	if (data) 
 	{
 		// 第一个GL_RGB是生成纹理的格式，第二个format是资源像素点的格式；

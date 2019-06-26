@@ -2,10 +2,12 @@
 #include "shader.h"
 #include "mygl.h"
 
+//extern std::string g_res_path;
+
 Shader::Shader(const GLchar* vertexPath, const GLchar* fragmentPath)
 {
 	std::cout << "INFO: start compile shader :\n\t'" << vertexPath << "', \n\t'" << fragmentPath << "'" << std::endl;
-
+    //std::cout << g_res_path << std::endl;
 	std::string vertexCode;
 	std::string fragmentCode;
 	std::ifstream vShaderFile;
